@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import CurrentStockContext from '../Context';
+import CurrentStockContext from '../context/CurrentStcok';
 
 function StockResult() {
     const [error, setError] = useState(null);
@@ -12,7 +12,6 @@ function StockResult() {
     return (
         <div className="stock-result-container">
             <p>This is stock result area</p>
-            <p>{currentStock}</p>
         </div>
     );
 }

@@ -1,0 +1,7 @@
+{
+    "API_BaseURL": "https://financialmodelingprep.com/api/v3/",
+    "API_Key": "6aba1c9985ced472f523fd6f5d9ee688",
+    "Search_setting": {
+        "limit": 10
+    }
+}
