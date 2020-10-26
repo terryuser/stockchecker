@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import CurrentStockContext from '../context/CurrentStcok';
 
-function StockResult() {
+function Home() {
     const [error, setError] = useState(null);
     const [isSent, setIsSent] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -11,10 +11,9 @@ function StockResult() {
 
     return (
         <div className="stock-result-container">
-            <p>This is stock result area</p>
-            <p>{currentStock}</p>
+            <p>This is stock summmary page</p>
         </div>
     );
 }
 
-export default StockResult;
+export default Home;

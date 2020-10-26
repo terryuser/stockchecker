@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { HashRouter, Route } from 'react-router-dom'
 import './App.css';
 
+import Home from './component/Home';
 import SearchBar from './component/SearchBar';
 import StockResult from './component/StockResult';
 
@@ -11,8 +13,11 @@ function App() {
   return (
     <div className="App">
       <CurrentStockProvider value={[ current, setCurrent ]}>
+        <HashRouter basename="/">
           <SearchBar />
-          <StockResult />
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/stock" component={StockResult}></Route>
+        </HashRouter>
       </CurrentStockProvider>
     </div>
   );

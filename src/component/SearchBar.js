@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import {BrowserRouter, HashRouter, Link} from 'react-router-dom'
 import CurrentStockContext from '../context/CurrentStcok';
 import Config from '../context/Config.json';
 
@@ -28,20 +29,33 @@ function SearchBar() {
         searchStock(input);
     };
 
+    const handleChooseStock = (event, item) => {
+      setSearchTerm(null);
+      setSendSearch(false);
+      setSendSearch(null);
+      setCurrent(item.symbol);
+    }
+
+    const path_stock = '/stock/';
+
     const SearchList = () => {
         if (sendSearch) {
             return (
+              
                 <ul className="search-result-wrapper">
                     {
                         searchResult.map((item ,index) =>
                             <li className="search-result-item" key={index}>
+                              <Link to={path_stock + item.symbol} onClick={e=> handleChooseStock(e, item)}>
                                 <div className="symbol">{item.symbol}</div>
                                 <div className="name">{item.name}</div>
                                 <div className="exchange-symbol">{item.exchangeShortName}</div>
+                              </Link>
                             </li>
                         )
                     }
                 </ul>
+              
             );
         } else {
             return ('No result');
