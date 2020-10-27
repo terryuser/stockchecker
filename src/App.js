@@ -15,10 +15,17 @@ function App() {
       <CurrentStockProvider value={[ current, setCurrent ]}>
         <HashRouter basename="/">
           <SearchBar />
-          <Route exact path="/" component={Home}></Route>
-          <Switch>
-            <Route path="/stock/:symbol" component={StockResult}></Route>
-          </Switch>
+          <main>
+            <section>
+              <Switch>
+                <Route exact path="/" component={Home}></Route>
+                <Route path="/stock/:symbol" component={StockResult}></Route>
+              </Switch>
+            </section>
+            <aside>
+              
+            </aside>
+          </main>
         </HashRouter>
       </CurrentStockProvider>
     </div>
