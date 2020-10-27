@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { HashRouter, Route } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 
 import Home from './component/Home';
@@ -16,7 +16,9 @@ function App() {
         <HashRouter basename="/">
           <SearchBar />
           <Route exact path="/" component={Home}></Route>
-          <Route path="/stock" component={StockResult}></Route>
+          <Switch>
+            <Route path="/stock/:symbol" component={StockResult}></Route>
+          </Switch>
         </HashRouter>
       </CurrentStockProvider>
     </div>
