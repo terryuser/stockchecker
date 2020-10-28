@@ -40,23 +40,27 @@ function SearchBar() {
 
     const SearchList = () => {
         if (sendSearch) {
+          if ("Error Message" in searchResult) {
             return (
-              
-                <ul className="search-result-wrapper">
-                    {
-                        searchResult.map((item ,index) =>
-                            <li className="search-result-item" key={index}>
-                              <Link to={path_stock + item.symbol} onClick={e=> handleChooseStock(e, item)}>
-                                <div className="symbol">{item.symbol}</div>
-                                <div className="name">{item.name}</div>
-                                <div className="exchange-symbol">{item.exchangeShortName}</div>
-                              </Link>
-                            </li>
-                        )
-                    }
-                </ul>
-              
+              <div>Limited Reach</div>
             );
+          } else {
+            return (
+              <ul className="search-result-wrapper">
+                  {
+                      searchResult.map((item ,index) =>
+                          <li className="search-result-item" key={index}>
+                            <Link to={path_stock + item.symbol} onClick={e=> handleChooseStock(e, item)}>
+                              <div className="symbol">{item.symbol}</div>
+                              <div className="name">{item.name}</div>
+                              <div className="exchange-symbol">{item.exchangeShortName}</div>
+                            </Link>
+                          </li>
+                      )
+                  }
+              </ul>
+            );
+          }
         } else {
             return ('No result');
         }
@@ -75,7 +79,6 @@ function SearchBar() {
         .then((res) => res.json())
         .then(
           (result) => {
-            console.log(result);
             setSendSearch(true);
             setSearchResult(result);
           },
@@ -83,6 +86,7 @@ function SearchBar() {
           // instead of a catch() block so that we don't swallow
           // exceptions from actual bugs in components.
           (error) => {
+            console.log(error);
             setSendSearch(true);
             setError(error);
           }
