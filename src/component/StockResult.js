@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {useParams} from "react-router-dom"
+import {useParams} from 'react-router-dom';
 import Config from '../context/Config.json';
-import { Line, Bar } from 'react-chartjs-2';
+import StockChart from 'react-financial-charts';
 
 import CurrentStockContext from '../context/CurrentStcok';
+import StockDataContext from '../context/StockData';
 
 
 function StockResult() {
     const [error, setError] = useState(null);
     const [isSent, setIsSent] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isFinishFetch, setIsFinishFetch] = useState();
     const [stockData, setStockData] = useState([]);
+    const [dailyData, setDailyData] = useState([]);
 
     const [currentStock, setCurrentStock] = useContext(CurrentStockContext);
 
@@ -57,13 +58,13 @@ function StockResult() {
         .then(
             (response) => {
                 console.log(response);
+                if (response.historical) setDailyData(response.historical);
             },
             (error) => {
                 console.log(error)
             }
         );
     };
-    
 
     return (
         <div className="stock-result-container">
