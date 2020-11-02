@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import Config from '../context/Config.json';
 import StockChart from 'react-financial-charts';
+import Chart from './Chart';
 
 import CurrentStockContext from '../context/CurrentStcok';
 import StockDataContext from '../context/StockData';
@@ -11,24 +12,30 @@ function StockResult() {
     const [error, setError] = useState(null);
     const [isSent, setIsSent] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [stockData, setStockData] = useState([]);
+    const [stockData, setStockData] = useState(null);
     const [dailyData, setDailyData] = useState([]);
 
     const [currentStock, setCurrentStock] = useContext(CurrentStockContext);
 
     const {symbol} = useParams();
 
-    const target = (currentStock === symbol)? currentStock:symbol;
+    const target = () => {
+      if (currentStock !== symbol) {
+        console.log("No same symbol");
+        setCurrentStock(symbol);
+        return symbol;
+      } else {
+        return currentStock;
+      }
+    } 
 
     useEffect(() => {
-        getStockProfile();
-        getHistoricalDailyPrices(90);
+      getStockProfile();
     }, []);
 
-    const getStockProfile = (terms) => {
-      fetch(
-        Config.API_BaseURL + "profile/" + target + "?apikey=" + Config.API_Key
-      )
+    const getStockProfile = () => {
+      let ajaxURL = Config.API_BaseURL + "profile/" + target() + "?apikey=" + Config.API_Key;
+      fetch( ajaxURL )
         .then((res) => res.json())
         .then(
           (data) => {
@@ -44,31 +51,30 @@ function StockResult() {
         );
     };
 
-    const getHistoricalDailyPrices = (series) => {
-        fetch(
-            Config.API_BaseURL + 
-            "historical-price-full/" +
-            target +
-            "?timeseries=" +
-            series +
-            "&apikey=" +
-            Config.API_Key
-        )
-        .then((res) => res.json())
-        .then(
-            (response) => {
-                console.log(response);
-                if (response.historical) setDailyData(response.historical);
-            },
-            (error) => {
-                console.log(error)
-            }
+    const DataList = () => {
+      if (stockData == null) {
+        return (
+          <div>No data</div>
         );
-    };
+      } else {
+        var data = stockData[0];
+        console.log(data);
+        return (
+          <ul>
+            {
+              Object.entries(data).map(([key,value]) => 
+                <li>{key} : {value.toString()}</li>
+              )
+            }
+          </ul>
+        );
+      }
+  };
 
     return (
         <div className="stock-result-container">
-
+          <DataList />
+          {/* {(dailyData.length > 0)? <Chart type="hybrid" data={dailyData}/>:<div>No data</div>} */}
         </div>
     );
 }
