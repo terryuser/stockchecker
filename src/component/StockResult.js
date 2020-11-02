@@ -4,6 +4,8 @@ import Config from '../context/Config.json';
 import StockChart from 'react-financial-charts';
 import Chart from './Chart';
 
+import { getData } from "../context/HistoricalData"
+
 import CurrentStockContext from '../context/CurrentStcok';
 import StockDataContext from '../context/StockData';
 
@@ -31,6 +33,7 @@ function StockResult() {
 
     useEffect(() => {
       getStockProfile();
+      fetchData();
     }, []);
 
     const getStockProfile = () => {
@@ -51,30 +54,39 @@ function StockResult() {
         );
     };
 
+    const fetchData = () => {
+      getData().then((data) => {
+        setIsLoaded(true);
+        setDailyData({data});
+      })
+    }
+
     const DataList = () => {
       if (stockData == null) {
-        return (
-          <div>No data</div>
-        );
+        return <div>No data</div>;
       } else {
         var data = stockData[0];
         console.log(data);
         return (
           <ul>
-            {
-              Object.entries(data).map(([key,value]) => 
-                <li>{key} : {value.toString()}</li>
-              )
-            }
+            {Object.entries(data).map(([key, value]) => (
+              <li>
+                {key} : {value.toString()}
+              </li>
+            ))}
           </ul>
         );
       }
-  };
+    };
+
+    const Loading = () => {
+      return <div>Loading...</div>
+    }
 
     return (
         <div className="stock-result-container">
           <DataList />
-          {/* {(dailyData.length > 0)? <Chart type="hybrid" data={dailyData}/>:<div>No data</div>} */}
+          { (isLoaded)? <Loading /> : <Chart type="hybrid" symbol={target()} data={dailyData} /> }
         </div>
     );
 }
