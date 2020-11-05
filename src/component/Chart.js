@@ -1,6 +1,5 @@
-import Config from '../context/Config.json';
 
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { scaleTime } from "d3-scale";
@@ -19,18 +18,20 @@ const canvasGradient = createVerticalLinearGradient([
 ]);
 
 class AreaChart extends React.Component {
-
 	render() {
-		const { data, type, width, ratio, symbol } = this.props;
-
+		const { data, type, width, ratio } = this.props;
+		console.log("ratio: " + ratio);
+		console.log("type: " + type);
+		console.log("width: " + width);
+		console.log(data);
 		return (
 			<ChartCanvas ratio={ratio} width={width} height={400}
 				margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
-				seriesName={symbol}
+				seriesName="MSFT"
 				data={data} type={type}
 				xAccessor={d => d.date}
 				xScale={scaleTime()}
-				xExtents={[new Date(2018, 0, 1), new Date(2020, 0, 2)]}
+				xExtents={[new Date(2011, 0, 1), new Date(2013, 0, 2)]}
 			>
 				<Chart id={0} yExtents={d => d.close}>
 					<defs>
@@ -54,6 +55,7 @@ class AreaChart extends React.Component {
 		);
 	}
 }
+
 
 AreaChart.propTypes = {
 	data: PropTypes.array.isRequired,
