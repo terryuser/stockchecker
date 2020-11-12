@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import {useParams} from 'react-router-dom';
 import Config from '../context/Config.json';
 import * as d3 from 'd3';
@@ -59,46 +60,12 @@ function StockResult() {
 
     const fetchData = () => {
       const ajaxURL = Config.API_BaseURL +"historical-price-full/" + target() + "?apikey=" + Config.API_Key;
-      const parseTime = d3.timeParse('%Y-%m-%d') 
       fetch ( ajaxURL )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.historical);
         let dataset = data.historical;
-
-        // let keys = ["date","open","high","low","close","volume"],
-        //     i = 0,
-        //     k = 0,
-        //     obj = null,
-        //     output = [];
-        
-        // for (i = 0; i < dataset.length; i++) {
-        //   obj = [];
-        //   obj[keys[0]] = parseTime(dataset[i]["date"]);
-        //   for (k = 1; k < keys.length; k++) {
-        //     obj[keys[k]] = dataset[i][keys[k]];
-        //   }
-        //   output.push(obj);
-        // }
-        
-        dataset.forEach(function(d) {
-          d.date = parseTime(d.date);
-          d.close = +d.close;
-          d.open = +d.open;
-        });
-
-        let keys = ["date", "open", "high", "low", "close", "adjClose", "volume", "unadjustedVolume", "change", "changePercent", "vwap", "label", "changeOverTime"];
-
-        Object.assign(dataset, {columns: keys});
-
-        console.log(dataset);
-        // setDailyData(dataset);
-        // setIsLoaded(true);
-      });
-
-      getData().then(data => {
-        console.log(data);
-        setDailyData(data);
+        setDailyData(dataset);
         setIsLoaded(true);
       });
     }
@@ -128,8 +95,14 @@ function StockResult() {
     return (
         <div className="stock-result-container">
           {/* <DataList /> */}
-          { (isLoaded)? <Chart type="hybrid" symbol={target()} data={dailyData} /> : <Loading /> }
-
+          <div>
+          <LineChart width={600} height={300} data={dailyData}>
+            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+            <CartesianGrid stroke="#ccc" />
+            <XAxis dataKey="date" />
+            <YAxis dataKey="open" />
+          </LineChart>
+          </div>
         </div>
     );
 }
