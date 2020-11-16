@@ -18,9 +18,12 @@ import StockDataContext from '../context/StockData';
 function StockResult() {
     const [error, setError] = useState(null);
     const [isSent, setIsSent] = useState(false);
+    const [isFinishFetch, setIsFinishFetch] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [stockData, setStockData] = useState(null);
     const [dailyData, setDailyData] = useState([]);
+    const [displayData, setDisplayData] = useState(null);
+    const [histroryDays, setHistroryDays] = useState(30);
 
     const [currentStock, setCurrentStock] = useContext(CurrentStockContext);
 
@@ -37,7 +40,7 @@ function StockResult() {
     } 
 
     useEffect(() => {
-      getStockProfile();
+      // getStockProfile();
       fetchData();
     }, []);
 
@@ -63,10 +66,24 @@ function StockResult() {
       fetch ( ajaxURL )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.historical);
+        console.log(data);
         let dataset = data.historical;
+        dataset.map((item) => {
+          let full_date = new Date(item.date);
+          item.date = full_date.getDate() + '/' + full_date.getMonth() + '/' + full_date.getFullYear(full_date);
+        });
+        dataset.reverse();
+        console.log(dataset);
         setDailyData(dataset);
-        setIsLoaded(true);
+        let endIndex = dataset.length;
+        let startIndex = endIndex - histroryDays;
+        let displayData = dataset.slice(startIndex, endIndex);
+        console.log(displayData);
+        setDisplayData(displayData);
+        setIsFinishFetch(true);
+      })
+      .catch(error => {
+        console.log(error)
       });
     }
 
@@ -96,11 +113,11 @@ function StockResult() {
         <div className="stock-result-container">
           {/* <DataList /> */}
           <div>
-          <LineChart width={600} height={300} data={dailyData}>
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+          <LineChart width={600} height={300} data={displayData}>
+            <Line type="monotone" dataKey="close" stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="date" />
-            <YAxis dataKey="open" />
+            <XAxis dataKey="date" interval="preserveEnd" />
+            <YAxis dataKey="close" interval="preserveEnd" />
           </LineChart>
           </div>
         </div>

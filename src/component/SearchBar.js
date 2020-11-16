@@ -67,24 +67,17 @@ function SearchBar() {
     };
 
     const searchStock = (terms) => {
-      fetch(
-        Config.API_BaseURL +
-          "search?query=" +
-          terms +
-          "&limit" +
-          Config.Search_setting.limit +
-          "&apikey=" +
-          Config.API_Key
-      )
+      let financialmodel_API = Config.API_BaseURL + "search?query=" + terms + "&limit" + Config.Search_setting.limit + "&apikey=" + Config.API_Key;
+      let alphavantage_API = Config.Alphavantage_API_base + "/query?function=SYMBOL_SEARCH&keywords=" + terms + "&apikey=" + Config.Alphavantage_API_Key;
+      fetch(financialmodel_API)
         .then((res) => res.json())
         .then(
           (result) => {
-            setSendSearch(true);
+            // let matches = result.bestMatches;
+            // analysisAlphaSearchData(matches);
             setSearchResult(result);
+            setSendSearch(true);
           },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
           (error) => {
             console.log(error);
             setSendSearch(true);
@@ -92,7 +85,21 @@ function SearchBar() {
           }
         );
     };
-
+    
+    // const analysisAlphaSearchData = (data) => {
+    //   data.map((item) =>{
+    //     console.log(item);
+    //     item["9. matchScore"] = parseFloat(item["9. matchScore"]);
+    //   });
+    //   data.sort((a,b) => {
+    //     let sort = (a["9. matchScore"] > b["9. matchScore"])? true : false;
+    //     if (sort) return 1;
+    //     if (!sort) return -1;
+    //     return 0;
+    //   });
+    //   setSearchResult(data);
+    // }
+    
     return (
       <header className="App-header">
         <div className="Search-block">
