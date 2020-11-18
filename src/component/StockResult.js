@@ -1,18 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import {useParams} from 'react-router-dom';
 import Config from '../context/Config.json';
 import * as d3 from 'd3';
-import { timeParse } from "d3-time-format";
-import StockChart from 'react-financial-charts';
-import Chart from './Chart';
 
-import { getData } from "../context/utils"
-
-// import { getData } from "../context/HistoricalData"
+import CandleChart from './CandleChart';
+// import HistoricalData from '../context/HistoricalData';
 
 import CurrentStockContext from '../context/CurrentStcok';
-import StockDataContext from '../context/StockData';
 
 
 function StockResult() {
@@ -24,6 +18,7 @@ function StockResult() {
     const [dailyData, setDailyData] = useState([]);
     const [displayData, setDisplayData] = useState(null);
     const [histroryDays, setHistroryDays] = useState(30);
+    const [chartsToDisplay, setChartsToDisplay] = useState([]);
 
     const [currentStock, setCurrentStock] = useContext(CurrentStockContext);
 
@@ -37,11 +32,28 @@ function StockResult() {
       } else {
         return currentStock;
       }
-    } 
+    }
+
+    const getData = async () => {
+      const ajaxURL = Config.API_BaseURL +"historical-price-full/" + target() + "?apikey=" + Config.API_Key;
+      fetch(ajaxURL)
+      .then((res) => res.json())
+      .then((data)=> {
+        let dataset = data.historical;
+        dataset.map((item) => {
+          let full_date = new Date(item.date);
+          item.date = full_date;
+        });
+
+        dataset.sort((a,b) => a.date - b.date);
+        setDailyData(dataset);
+        setIsLoaded(true);
+      })
+    };
 
     useEffect(() => {
-      // getStockProfile();
-      fetchData();
+      // fetchData();
+      getData();
     }, []);
 
     const getStockProfile = () => {
@@ -66,19 +78,19 @@ function StockResult() {
       fetch ( ajaxURL )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         let dataset = data.historical;
         dataset.map((item) => {
           let full_date = new Date(item.date);
           item.date = full_date.getDate() + '/' + full_date.getMonth() + '/' + full_date.getFullYear(full_date);
         });
         dataset.reverse();
-        console.log(dataset);
+        // console.log(dataset);
         setDailyData(dataset);
         let endIndex = dataset.length;
         let startIndex = endIndex - histroryDays;
         let displayData = dataset.slice(startIndex, endIndex);
-        console.log(displayData);
+        // console.log(displayData);
         setDisplayData(displayData);
         setIsFinishFetch(true);
       })
@@ -109,17 +121,27 @@ function StockResult() {
       return <div>Loading...</div>
     }
 
+    const displayChart = () => {
+      if (isLoaded) {
+        console.log(dailyData);
+        return <CandleChart key={1} data={dailyData} symbol={currentStock} />
+      } else {
+        return <div>Fetching Data</div>
+      }
+    }
+
     return (
         <div className="stock-result-container">
           {/* <DataList /> */}
-          <div>
+          {/* <div>
           <LineChart width={600} height={300} data={displayData}>
             <Line type="monotone" dataKey="close" stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" />
             <XAxis dataKey="date" interval="preserveEnd" />
             <YAxis dataKey="close" interval="preserveEnd" />
           </LineChart>
-          </div>
+          </div> */}
+          {displayChart()}
         </div>
     );
 }
