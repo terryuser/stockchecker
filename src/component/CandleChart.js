@@ -1,18 +1,59 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { scaleTime } from "d3-scale";
+import { format } from "d3-format";
 import { ChartCanvas, Chart } from "react-stockcharts";
 import { CandlestickSeries } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import { utcDay } from "d3-time";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { timeIntervalBarWidth } from "react-stockcharts/lib/utils";
+import AreaSeries from "react-stockcharts/lib/series/AreaSeries";
+import { HoverTooltip } from "react-stockcharts/lib/tooltip";
 
 let CandleChart = (props) => {
   const { data, type, width, ratio, symbol } = props;
   const xAccessor = (d) => {
     return d.date;
   };
+  const currentDate = new Date();
+  const startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay() -7);
+
+  const numberFormat = format(".2f");
+
+  const tooltipContent = (ys) => {
+    return ({ currentItem, xAccessor }) => {
+      return {
+        x: (xAccessor(currentItem).getFullYear() + "/" + xAccessor(currentItem).getMonth() + "/" + xAccessor(currentItem).getDay()),
+        y: [
+          {
+            label: "open",
+            value: currentItem.open && numberFormat(currentItem.open)
+          },
+          {
+            label: "close",
+            value: currentItem.close && numberFormat(currentItem.close)
+          },{
+            label: "low",
+            value: currentItem.low && numberFormat(currentItem.low)
+          },{
+            label: "high",
+            value: currentItem.high && numberFormat(currentItem.high)
+          }
+        ]
+        .concat(
+          ys.map(each => ({
+            label: each.label,
+            value: each.value(currentItem),
+            stroke: each.stroke
+          }))
+        )
+        .filter(line => line.value)
+      }
+    }
+  }
+
+
   return (
     <div className="ChartJS">
       <ChartCanvas
@@ -25,12 +66,22 @@ let CandleChart = (props) => {
         seriesName={symbol}
         xAccessor={xAccessor}
         xScale={scaleTime()}
-        xExtents={[new Date(2020, 0, 30), new Date(2020, 1, 16)]}
+        xExtents={[startDate, currentDate]}
       >
         <Chart id={1} yExtents={(d) => [d.high, d.low]}>
           <XAxis axisAt="bottom" orient="bottom" ticks={6} />
-          <YAxis axisAt="left" orient="left" ticks={5} />
+          <YAxis axisAt="right" orient="right" />
           <CandlestickSeries width={timeIntervalBarWidth(utcDay)} />
+          <HoverTooltip
+            yAccessor={(d) => [d.high, d.low]}
+            tooltipContent={tooltipContent([])}
+            fontSize={14}
+          />
+        </Chart>
+        <Chart id={1} yExtents={(d) => d.close}>
+          <XAxis axisAt="bottom" orient="bottom" ticks={6} />
+          <YAxis axisAt="right" orient="right" />
+          <AreaSeries yAccessor={(d) => d.close} />
         </Chart>
       </ChartCanvas>
     </div>
@@ -45,7 +96,7 @@ CandleChart.prototype = {
 };
 
 CandleChart.defaultProps = {
-  type: "svg",
+  type: "hybird",
 };
 
 CandleChart = fitWidth(CandleChart);
