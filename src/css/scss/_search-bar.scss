@@ -1,0 +1,50 @@
+.Search-block {
+    position: relative;
+
+    .Input-wrapper {
+        line-height: 1;
+        
+        
+        * {
+            font-size: $f12;
+        }
+
+        .search-input {
+            padding: 5px;
+            width:600px;
+        }
+
+        button {
+            
+        }
+    }
+    
+
+    .search-result-wrapper {
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        background-color: $white;
+    }
+
+    .search-result-item {
+        line-height: 1;
+
+        &:hover {
+            background-color: $gray-400;
+        }
+
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .symbol, .name, .exchange-symbol {
+            font-size: $f12;
+        }
+    }
+
+}

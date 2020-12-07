@@ -1,3 +1,13 @@
-svg.react-stockchart {
-    left: 0;
+@import './_value.scss';
+@import './_bootstrap.scss';
+@import './_search-bar.scss';
+@import './chart';
+
+body {
+    font-size: $body-fontsize;
 }
+
+header {
+    padding: 10px;
+}
+

@@ -46,14 +46,14 @@ function SearchBar() {
             );
           } else {
             return (
-              <ul className="search-result-wrapper">
+              <ul className="search-result-wrapper list-group">
                   {
                       searchResult.map((item ,index) =>
-                          <li className="search-result-item" key={index}>
-                            <Link to={path_stock + item.symbol} onClick={e=> handleChooseStock(e, item)}>
-                              <div className="symbol">{item.symbol}</div>
-                              <div className="name">{item.name}</div>
-                              <div className="exchange-symbol">{item.exchangeShortName}</div>
+                          <li className="search-result-item list-group-item px-1 py-1" key={index}>
+                            <Link to={path_stock + item.symbol} onClick={e=> handleChooseStock(e, item)} className="d-flex text-left align-middle">
+                              <div className="symbol d-inline-block col-3">{item.symbol}</div>
+                              <div className="name d-inline-block col-6">{item.name}</div>
+                              <div className="exchange-symbol d-inline-block col-3">{item.exchangeShortName}</div>
                             </Link>
                           </li>
                       )
@@ -62,7 +62,7 @@ function SearchBar() {
             );
           }
         } else {
-            return ('No result');
+            return ('');
         }
     };
 
@@ -103,14 +103,19 @@ function SearchBar() {
     return (
       <header className="App-header">
         <div className="Search-block">
-          <div className="Input-wrapper">
+          <div className="Input-wrapper input-group">
             <input
               type="text"
+              className="search-input form-control"
               placeholder="Stock symbol"
+              aria-label="Stock symbol"
+              aria-describedby="symbol"
               onChange={handleSearchTerm}
               onKeyDown={handleKeyDown}
             />
-            <button onClick={handleClick}>Go!</button>
+            <div class="input-group-append">
+              <button className="btn btn-outline-primary" onClick={handleClick}>Go!</button>
+            </div>
           </div>
           <SearchList />
         </div>

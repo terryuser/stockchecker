@@ -12,19 +12,19 @@ import AreaSeries from "react-stockcharts/lib/series/AreaSeries";
 import { HoverTooltip } from "react-stockcharts/lib/tooltip";
 
 let CandleChart = (props) => {
-  const { data, type, width, ratio, symbol } = props;
+  const { data, type, width, height, ratio, symbol } = props;
   const xAccessor = (d) => {
     return d.date;
   };
   const currentDate = new Date();
-  const startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay() -7);
+  const startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay() -14);
 
   const numberFormat = format(".2f");
 
   const tooltipContent = (ys) => {
     return ({ currentItem, xAccessor }) => {
       return {
-        x: (xAccessor(currentItem).getFullYear() + "/" + xAccessor(currentItem).getMonth() + "/" + xAccessor(currentItem).getDay()),
+        x: (xAccessor(currentItem)),
         y: [
           {
             label: "open",
@@ -57,10 +57,10 @@ let CandleChart = (props) => {
   return (
     <div className="ChartJS">
       <ChartCanvas
-        height={400}
+        height={height}
         ratio={ratio}
         width={width}
-        margin={{ left: 0, right: 0, top: 10, bottom: 30 }}
+        margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
         type={type}
         data={data}
         seriesName={symbol}
@@ -72,16 +72,12 @@ let CandleChart = (props) => {
           <XAxis axisAt="bottom" orient="bottom" ticks={6} />
           <YAxis axisAt="right" orient="right" />
           <CandlestickSeries width={timeIntervalBarWidth(utcDay)} />
+          <AreaSeries yAccessor={(d) => d.close} />
           <HoverTooltip
             yAccessor={(d) => [d.high, d.low]}
             tooltipContent={tooltipContent([])}
             fontSize={14}
           />
-        </Chart>
-        <Chart id={1} yExtents={(d) => d.close}>
-          <XAxis axisAt="bottom" orient="bottom" ticks={6} />
-          <YAxis axisAt="right" orient="right" />
-          <AreaSeries yAccessor={(d) => d.close} />
         </Chart>
       </ChartCanvas>
     </div>

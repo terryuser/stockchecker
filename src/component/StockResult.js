@@ -125,7 +125,7 @@ function StockResult() {
     const displayChart = () => {
       if (isLoaded) {
         console.log(dailyData);
-        return <CandleChart key={1} data={dailyData} symbol={currentStock} />
+        return <CandleChart key={1} data={dailyData} symbol={currentStock} width={600} height={300} />
       } else {
         return <div>Fetching Data</div>
       }
