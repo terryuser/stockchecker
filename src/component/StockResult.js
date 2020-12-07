@@ -53,6 +53,7 @@ function StockResult() {
 
     useEffect(() => {
       // fetchData();
+      getStockProfile();
       getData();
     }, []);
 
@@ -109,7 +110,7 @@ function StockResult() {
           <ul>
             {Object.entries(data).map(([key, value]) => (
               <li>
-                {key} : {value.toString()}
+                {key} : {value}
               </li>
             ))}
           </ul>
@@ -132,7 +133,7 @@ function StockResult() {
 
     return (
         <div className="stock-result-container">
-          {/* <DataList /> */}
+          <DataList />
           {/* <div>
           <LineChart width={600} height={300} data={displayData}>
             <Line type="monotone" dataKey="close" stroke="#8884d8" />

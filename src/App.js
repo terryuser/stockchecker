@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
+import './css/scss/main.scss';
 
 import Home from './component/Home';
 import SearchBar from './component/SearchBar';

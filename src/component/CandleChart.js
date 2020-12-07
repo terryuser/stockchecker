@@ -60,7 +60,7 @@ let CandleChart = (props) => {
         height={400}
         ratio={ratio}
         width={width}
-        margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
+        margin={{ left: 0, right: 0, top: 10, bottom: 30 }}
         type={type}
         data={data}
         seriesName={symbol}
