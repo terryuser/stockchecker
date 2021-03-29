@@ -113,13 +113,13 @@ function SearchBar() {
               onChange={handleSearchTerm}
               onKeyDown={handleKeyDown}
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
               <button className="btn btn-outline-primary" onClick={handleClick}>Go!</button>
             </div>
           </div>
           <SearchList />
         </div>
-        <div>{!sendSearch ? 'Waiting' : 'Searching: ' + JSON.stringify(searchTerm)}</div>
+        {/* <div>{!sendSearch ? 'Waiting' : 'Searching: ' + JSON.stringify(searchTerm)}</div> */}
       </header>
     );
 }

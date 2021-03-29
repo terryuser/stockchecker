@@ -4,9 +4,11 @@ import Config from '../context/Config.json';
 import * as d3 from 'd3';
 
 import CandleChart from './CandleChart';
+import StockInfo from './StockInfo';
 // import HistoricalData from '../context/HistoricalData';
 
 import CurrentStockContext from '../context/CurrentStcok';
+
 
 
 function StockResult() {
@@ -125,7 +127,12 @@ function StockResult() {
     const displayChart = () => {
       if (isLoaded) {
         console.log(dailyData);
-        return <CandleChart key={1} data={dailyData} symbol={currentStock} width={600} height={300} />
+        return (
+          <div className="stock-data">
+            <StockInfo stock={stockData[0]} />
+            <CandleChart key={1} data={dailyData} symbol={currentStock} width={600} height={300} />
+          </div>
+        )
       } else {
         return <div>Fetching Data</div>
       }
@@ -133,15 +140,6 @@ function StockResult() {
 
     return (
         <div className="stock-result-container">
-          <DataList />
-          {/* <div>
-          <LineChart width={600} height={300} data={displayData}>
-            <Line type="monotone" dataKey="close" stroke="#8884d8" />
-            <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="date" interval="preserveEnd" />
-            <YAxis dataKey="close" interval="preserveEnd" />
-          </LineChart>
-          </div> */}
           {displayChart()}
         </div>
     );
