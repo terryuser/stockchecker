@@ -5,9 +5,17 @@
 
 body {
     font-size: $body-fontsize;
+    background-color: $dark;
 }
 
 header {
     padding: 10px;
 }
 
+main {
+    padding: 1.5rem 3rem;
+}
+
+div {
+    color: $white;
+}

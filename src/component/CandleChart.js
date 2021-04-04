@@ -17,7 +17,7 @@ let CandleChart = (props) => {
     return d.date;
   };
   const currentDate = new Date();
-  const startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay() -14);
+  const startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDay() - 14);
 
   const numberFormat = format(".2f");
 
@@ -33,22 +33,22 @@ let CandleChart = (props) => {
           {
             label: "close",
             value: currentItem.close && numberFormat(currentItem.close)
-          },{
+          }, {
             label: "low",
             value: currentItem.low && numberFormat(currentItem.low)
-          },{
+          }, {
             label: "high",
             value: currentItem.high && numberFormat(currentItem.high)
           }
         ]
-        .concat(
-          ys.map(each => ({
-            label: each.label,
-            value: each.value(currentItem),
-            stroke: each.stroke
-          }))
-        )
-        .filter(line => line.value)
+          .concat(
+            ys.map(each => ({
+              label: each.label,
+              value: each.value(currentItem),
+              stroke: each.stroke
+            }))
+          )
+          .filter(line => line.value)
       }
     }
   }
@@ -60,7 +60,7 @@ let CandleChart = (props) => {
         height={height}
         ratio={ratio}
         width={width}
-        margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
+        margin={{ left: 0, right: 50, top: 10, bottom: 30 }}
         type={type}
         data={data}
         seriesName={symbol}
@@ -69,7 +69,7 @@ let CandleChart = (props) => {
         xExtents={[startDate, currentDate]}
       >
         <Chart id={1} yExtents={(d) => [d.high, d.low]}>
-          <XAxis axisAt="bottom" orient="bottom" ticks={6} />
+          <XAxis axisAt="bottom" orient="bottom" ticks={10} />
           <YAxis axisAt="right" orient="right" />
           <CandlestickSeries width={timeIntervalBarWidth(utcDay)} />
           <AreaSeries yAccessor={(d) => d.close} />
