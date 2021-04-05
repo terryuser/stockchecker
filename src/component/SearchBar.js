@@ -54,6 +54,7 @@ function SearchBar() {
   const exchangeFlag = (exchange) => {
     let flagIMG = {
       NYSE: usa_jpg,
+      NASDAQ: usa_jpg,
       LSE: uk_jpg,
       EURONEXT: euro_jpg
     }
