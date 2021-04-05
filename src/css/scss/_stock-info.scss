@@ -1,4 +1,6 @@
 .stock-info {
+    align-items: center;
+
     .container-name {
         align-items: center;
     }
@@ -23,12 +25,24 @@
     }
 
     .container-price {
+        justify-content: flex-end;
+
+        @include media-tablet{
+            padding-top: 15px;
+            justify-content: flex-start;
+        }
+
+        @include media-mobile{
+            padding-top: 15px;
+            justify-content: flex-start;
+        }
+
         * {
-            font-size: $f18;
+            font-size: $f30;
         }
 
         .currency {
-            font-size: $f12;
+            font-size: $f14;
         }
     }
 
@@ -43,6 +57,14 @@
 
 .stock-details {
     flex-direction: column;
+
+    @include media-tablet {
+        padding: 10px 0 0 0 !important;
+    }
+
+    @include media-mobile {
+        padding: 10px 0 0 0 !important;
+    }
 
     .company-desc {
         line-height: 1.5;
@@ -109,6 +131,9 @@
 
             .content {
                 padding-left: 1rem;
+                @include media-mobile {
+                    padding: 15px 0 0 0 !important;
+                }
         
                 .title {
                     font-size: $f20;
@@ -118,6 +143,12 @@
                     font-size: $f14;
                 }
             }
+        }
+    }
+
+    .news-other {
+        @include media-mobile {
+            margin: 0 !important;
         }
     }
 

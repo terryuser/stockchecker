@@ -19,3 +19,46 @@ $desktop: 1024px;
         @content;
     }
 }
+
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: #ffffff){
+    overflow: hidden;
+    height: $lineHeight * $lineCount;
+    line-height: $lineHeight;
+  
+    &:before {
+      content:"";
+      float: left;
+      width: 5px; 
+          height: $lineHeight * $lineCount; 
+      }
+  
+    & > *:first-child {
+      float: right;
+      width: 100%;
+          margin-left: -5px; 
+      }
+  
+    &:after {
+      content: "...";
+      color: $blue;
+      box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+  
+      float: right; position: relative;
+      top: 0 - $lineHeight; 
+      left: 100%; 
+      width: 2.5rem; 
+      margin-left: -2.5rem;
+      padding-right: 5px;
+              
+      text-align: right;
+  
+      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#{$bgColor}), color-stop(50%, #{$bgColor}));
+      background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});            
+      background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});
+      background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});
+      }
+  }

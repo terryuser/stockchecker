@@ -30,3 +30,12 @@ main {
 div {
     color: $white;
 }
+
+a {
+    color: inherit;
+    &:hover {
+        color: inherit;
+        text-decoration: none !important;
+        opacity: 0.8;
+    }
+}

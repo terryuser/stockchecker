@@ -196,10 +196,10 @@ function StockResult() {
         <div className="stock-data row mx-0">
           <StockInfo stock={stockData[0]} />
           <div className="stock-result-wrapper px-0 pt-2 mx-0 row col-12">
-            <div className="stock-chart p-2 col-9" ref={el => { domWidth.current = el; console.log(domWidth); }} id="stock-chart">
-              <Chart type="hybrid" data={dailyData} symbol={currentStock} height={500} />
+            <div className="stock-chart p-2 col-lg-9 col-md-12 col-sm-12" ref={el => { domWidth.current = el; console.log(domWidth); }} id="stock-chart">
+              <Chart type="hybrid" data={dailyData} symbol={currentStock} height={(window.innerWidth > 768) ? 500 : 250} />
             </div>
-            <div className="stock-details col-3">
+            <div className="stock-details col-lg-3 col-md-12 col-sm-12">
               <StockDetails stock={stockData[0]} />
             </div>
           </div>

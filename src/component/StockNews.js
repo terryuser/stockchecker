@@ -16,16 +16,16 @@ let stockNews = (props) => {
         console.log(Object.values(top_result));
 
         return (
-            <div className="news-top pl-0 col-9">
+            <div className="news-top col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 {
                     Object.values(top_result).map((item, index) => {
                         let dd = item.provider_publish_time.getDay(), mm = item.provider_publish_time.getMonth() + 1, yyyy = item.provider_publish_time.getFullYear();
                         let time = ((dd < 10) ? '0' + dd : dd) + '-' + ((mm < 10) ? '0' + mm : mm) + '-' + yyyy;
 
                         return (
-                            <div className="news-item d-flex" key={index}>
-                                <div className="thumbnail d-flex text-left px-0 col-3"><img className="w-100" src={item.thumbnail} width={300} /></div>
-                                <div className="content text-left pl-4 col-9">
+                            <div className="news-item row mx-0" key={index}>
+                                <div className="thumbnail d-flex text-left px-0 col-lg-3 col-md-12 col-sm-12 col-xs-12"><img className="w-100" src={item.thumbnail} width={300} /></div>
+                                <div className="content text-left col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                     <div className="time-author">
                                         <span className="time">{time}</span>
                                         <span className="author">{item.provider_name}</span>
@@ -54,14 +54,14 @@ let stockNews = (props) => {
         console.log(Object.values(other_news_list));
 
         return (
-            <div className="news-other col-3">
+            <div className="news-other col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 {
                     Object.values(other_news_list).map((item, index) => {
                         let dd = item.provider_publish_time.getDay(), mm = item.provider_publish_time.getMonth() + 1, yyyy = item.provider_publish_time.getFullYear();
                         let time = ((dd < 10) ? '0' + dd : dd) + '-' + ((mm < 10) ? '0' + mm : mm) + '-' + yyyy;
 
                         return (
-                            <div className="news-item row" key={index}>
+                            <div className="news-item row mx-0 my-3" key={index}>
                                 <div className="content">
                                     <div className="time-author">
                                         <span className="time">{time}</span>
@@ -80,7 +80,7 @@ let stockNews = (props) => {
     return (
         <div className="stock-news container d-flex row mx-0 px-0 pt-4 mt-5 col-12">
             <h2>Current News</h2>
-            <div className="news-wrapper wrapper d-flex">
+            <div className="news-wrapper row d-flex">
                 {top3_News()}
                 {other_news()}
             </div>
