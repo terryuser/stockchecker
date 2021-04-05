@@ -1,0 +1,28 @@
+.symbol {
+    background-color: $gray-300;
+    color: #000;
+    padding: 3px 5px;
+}
+
+.news-item {
+    background-color: $gray-800;
+    text-align: left;
+
+    .content {
+        .time-author {
+            color: $gray-600;
+            
+            .author {
+                margin-left: 10px;
+            }
+        }
+
+        .title {
+            color: $white;
+        }
+
+        .summary {
+            color: $gray-500
+        }
+    }
+}

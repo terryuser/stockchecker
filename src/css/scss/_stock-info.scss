@@ -1,0 +1,127 @@
+.stock-info {
+    .container-name {
+        align-items: center;
+    }
+
+    .stock-image {
+        background-color: $white;
+        border-radius: 50%;
+        padding: 10px;
+        width: 55px;
+        height: 55px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stockSymbol {
+        .symbol {
+            font-size: $f12;
+            border-radius: 5px;
+            padding: 3px 6px;
+            line-height: 1;
+        }
+    }
+
+    .container-price {
+        * {
+            font-size: $f18;
+        }
+
+        .currency {
+            font-size: $f12;
+        }
+    }
+
+    .down {
+        color: $red;
+    }
+
+    .up {
+        color: $green;
+    }
+}
+
+.stock-details {
+    flex-direction: column;
+
+    .company-desc {
+        line-height: 1.5;
+        font-size: $f08;
+    }
+
+    .table-details {
+        border-spacing: 2px;
+        border-collapse: separate;
+
+        .field {
+            border-radius: 15px;
+
+            .label {
+                padding: 5px 10px;
+                width: 150px;
+                background-color: $gray-400;
+                color: $gray-900;
+                border-radius: 5px 0 0 5px;
+            }
+            .value {
+                padding: 5px 10px;
+                background-color: $gray-200;
+                color: $gray-900;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+
+    .company-website {
+        border-radius: 5px;
+        background-color: $primary;
+        color: $white;
+        padding: 8px 10px;
+        margin-top: 15px;
+    }
+}
+
+.stock-news {
+    border-top: 1px solid $gray-600;
+
+    h2 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .news-top {
+        .news-item {
+            margin-bottom: 15px;
+
+            .thumbnail {
+                width: 100%;
+                height: 125px;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+    
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+
+            .content {
+                padding-left: 1rem;
+        
+                .title {
+                    font-size: $f20;
+                }
+        
+                .summary {
+                    font-size: $f14;
+                }
+            }
+        }
+    }
+
+    .news-item {
+        padding: 10px;
+    }
+}

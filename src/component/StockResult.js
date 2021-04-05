@@ -1,14 +1,17 @@
 import React, { useContext, useEffect, useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Config from '../context/Config.json';
+
 import example from '../context/alphavantage_example.json';
 import example_details from '../context/example_details.json';
-import * as d3 from 'd3';
+import news_example from '../context/stock_news_example.json';
+
 
 import CandleChart from './CandleChart';
 import Chart from './Chart';
 import StockInfo from './StockInfo';
 import StockDetails from './StockDetails';
+import StockNews from './StockNews';
 // import HistoricalData from '../context/HistoricalData';
 
 import CurrentStockContext from '../context/CurrentStcok';
@@ -19,10 +22,12 @@ function StockResult() {
   const [isSent, setIsSent] = useState(false);
   const [isLoaded, setIsLoaded] = useState({
     profile: false,
-    dailyData: false
+    dailyData: false,
+    news: false
   });
   const [stockData, setStockData] = useState(null);
   const [dailyData, setDailyData] = useState([]);
+  const [stockNews, setStockNews] = useState(null);
   const [doneFetch, setDoneFetch] = useState(false);
 
   const [chartWidth, setChartWidth] = useState(0);
@@ -131,7 +136,42 @@ function StockResult() {
   };
 
   const fetchStockNews = async () => {
+    const ajaxURL = "https://yahoo-finance-low-latency.p.rapidapi.com/v2/finance/news?symbols=" + target();
+    const headers = {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": Config['Yahoo-x_rapidapi_key'],
+        "x-rapidapi-host": Config['Yahoo_Finance-news']
+      }
+    };
+    // fetch(ajaxURL, headers)
+    //   .then((res) => res.json())
+    //   .then((data) => {
 
+    //   })
+
+    console.log(news_example);
+
+    let news = news_example.Content.result;
+    news.map((item) => {
+      item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
+      let div = document.createElement("div");
+
+      div.innerHTML = item.title;
+      item.title = div.textContent || div.innerText;
+
+      div.innerHTML = item.summary;
+      item.summary = div.textContent || div.innerText;
+    });
+
+    console.log(news);
+
+    setStockNews(news);
+
+    let status = isLoaded;
+    status.news = true;
+    setIsLoaded(status);
+    setDoneFetch(checkFetchStatus());
   }
 
   const checkFetchStatus = () => {
@@ -146,17 +186,16 @@ function StockResult() {
     // getData();
     fetchProfile();
     fetchPriceHistory();
+    fetchStockNews();
   }, []);
 
   const displayChart = () => {
 
     if (doneFetch) {
-      // console.log(isLoaded)
-      // console.log(stockData);
       return (
-        <div className="stock-data row">
+        <div className="stock-data row mx-0">
           <StockInfo stock={stockData[0]} />
-          <div className="stock-details-wrapper py-2 row col-12">
+          <div className="stock-result-wrapper px-0 pt-2 mx-0 row col-12">
             <div className="stock-chart p-2 col-9" ref={el => { domWidth.current = el; console.log(domWidth); }} id="stock-chart">
               <Chart type="hybrid" data={dailyData} symbol={currentStock} height={500} />
             </div>
@@ -164,6 +203,7 @@ function StockResult() {
               <StockDetails stock={stockData[0]} />
             </div>
           </div>
+          <StockNews news={stockNews} />
         </div>
       )
     } else {

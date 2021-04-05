@@ -1,4 +1,8 @@
 $body-fontsize: 10px;
+$f08: 0.8rem;
+$f09: 0.9rem;
+$f10: 1.0rem;
+$f11: 1.1rem;
 $f12: 1.2rem;
 $f14: 1.4rem;
 $f16: 1.6rem;
@@ -89,6 +93,3 @@ $theme-colors: map-merge(
   ),
   $theme-colors
 );
-
-
-$white: #fff;

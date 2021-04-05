@@ -7,11 +7,13 @@ let stockDetails = (props) => {
     console.log(stock);
 
     const displayList = {
-        companyName: null,
-        symbol: null,
-        price: null,
         sector: "Sector",
-        range: "52 week Range"
+        industry: "Industry",
+        mktCap: "Market Cap",
+        range: "52 week Range",
+        lastDiv: "Last Dividend",
+        ipoDate: "IPO Date",
+        ceo: "CEO"
     };
 
     // console.log(displayList);
@@ -23,19 +25,21 @@ let stockDetails = (props) => {
     const changesPercent = stock.changes / (stock.price - stock.changes) * 100;
 
     return (
-        <div className="stock-details">
-            <table>
+        <div className="stock-details pr-0 d-flex">
+            <p className="company-desc text-left">{stock.description}</p>
+            <table className="table-details text-left">
                 <tbody>
                     {
                         Object.entries(displayList).map(([field, label]) => (
                             <tr key={field} className={"field " + field}>
                                 <th className="label">{label}</th>
-                                <td className="value">{stock[field]}</td>
+                                <td className="value text-left">{stock[field]}</td>
                             </tr>
                         ))
                     }
                 </tbody>
             </table>
+            <a href={stock.website} className="company-website"><div>View Offical Website</div></a>
         </div>
     );
 }

@@ -6,5 +6,8 @@
     "Alphavantage_API_Key": "90Z5VO3K51BL45ES",
     "Search_setting": {
         "limit": 10
-    }
+    },
+    "Yahoo-x_rapidapi_key":"aa4a4ca3famsh848267a0a99e223p125cc3jsn3ec1cfd6d129",
+    "Yahoo-x_rapidapi_host":"yahoo-finance-low-latency.p.rapidapi.com",
+    "Yahoo_Finance-news": "https://yahoo-finance-low-latency.p.rapidapi.com/v2/finance/news?symbols="
 }
