@@ -54,68 +54,91 @@ function StockResult() {
 
   const fetchProfile = () => {
     const ajaxURL = Config.API_BaseURL + "profile/" + target() + "?apikey=" + Config.API_Key;
-    // fetch(ajaxURL)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // console.log(data);
-    //     setStockData(data);
-    //     let status = isLoaded;
-    //     status.profile = true;
-    //     setIsLoaded(status);
-    //     setDoneFetch(checkFetchStatus());
-    //   },
-    //     (error) => {
-    //       setStockData(error);
-    //     }
-    //   );
+    fetch(ajaxURL)
+      .then((res) => res.json())
+      .then((data) => {
+        setStockData(data);
+        let status = isLoaded;
+        status.profile = true;
+        setIsLoaded(status);
+        setDoneFetch(checkFetchStatus());
+      },
+        (error) => {
+          setStockData(error);
+        }
+      );
 
-    setStockData(example_details);
-    let status = isLoaded;
-    status.profile = true;
-    setIsLoaded(status);
-    setDoneFetch(checkFetchStatus());
+    // setStockData(example_details);
+    // let status = isLoaded;
+    // status.profile = true;
+    // setIsLoaded(status);
+    // setDoneFetch(checkFetchStatus());
   };
 
   const fetchPriceHistory = async () => {
-    // const ajaxURL = Config.Alphavantage_API_base + "query?function=TIME_SERIES_DAILY&symbol=" + target() + "&outputsize=compact&apikey=" + Config.API_Key;
-    // fetch(ajaxURL)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     let dataset = data["Time Series (Daily)"];
-    //     console.log(Object.entries(dataset))
-    //   })
-    console.log(example);
+    const ajaxURL = Config.Alphavantage_API_base + "query?function=TIME_SERIES_DAILY&symbol=" + target() + "&outputsize=compact&apikey=" + Config.API_Key;
+    fetch(ajaxURL)
+      .then((res) => res.json())
+      .then((data) => {
+        let dataset = data["Time Series (Daily)"];
+        let chartData = [];
 
-    let dataset = example["Time Series (Daily)"];
-    // console.log(Object.entries(dataset));
+        Object.entries(dataset).map((row) => {
+          let dayRecord = [];
 
-    let chartData = [];
+          let date = row[0];
+          let OHLCV = row[1];
 
-    Object.entries(dataset).map((row) => {
-      let dayRecord = [];
+          dayRecord.date = new Date(date);
+          dayRecord.open = parseFloat(OHLCV['1. open']);
+          dayRecord.close = parseFloat(OHLCV['4. close']);
+          dayRecord.high = parseFloat(OHLCV['2. high']);
+          dayRecord.low = parseFloat(OHLCV['3. low']);
+          dayRecord.volume = Math.floor(OHLCV['5. volume']);
 
-      let date = row[0];
-      let OHLCV = row[1];
+          chartData.push(dayRecord);
+        });
 
-      dayRecord.date = new Date(date);
-      dayRecord.open = parseFloat(OHLCV['1. open']);
-      dayRecord.close = parseFloat(OHLCV['4. close']);
-      dayRecord.high = parseFloat(OHLCV['2. high']);
-      dayRecord.low = parseFloat(OHLCV['3. low']);
-      dayRecord.volume = Math.floor(OHLCV['5. volume']);
+        chartData.sort((a, b) => a.date - b.date);
+        setDailyData(chartData);
 
-      chartData.push(dayRecord);
-    });
+        console.log(chartData);
 
-    chartData.sort((a, b) => a.date - b.date);
-    setDailyData(chartData);
+        let status = isLoaded;
+        status.dailyData = true;
+        setIsLoaded(status);
+        setDoneFetch(checkFetchStatus());
+      })
 
-    console.log(chartData);
+    // let dataset = example["Time Series (Daily)"];
 
-    let status = isLoaded;
-    status.dailyData = true;
-    setIsLoaded(status);
-    setDoneFetch(checkFetchStatus());
+    // let chartData = [];
+
+    // Object.entries(dataset).map((row) => {
+    //   let dayRecord = [];
+
+    //   let date = row[0];
+    //   let OHLCV = row[1];
+
+    //   dayRecord.date = new Date(date);
+    //   dayRecord.open = parseFloat(OHLCV['1. open']);
+    //   dayRecord.close = parseFloat(OHLCV['4. close']);
+    //   dayRecord.high = parseFloat(OHLCV['2. high']);
+    //   dayRecord.low = parseFloat(OHLCV['3. low']);
+    //   dayRecord.volume = Math.floor(OHLCV['5. volume']);
+
+    //   chartData.push(dayRecord);
+    // });
+
+    // chartData.sort((a, b) => a.date - b.date);
+    // setDailyData(chartData);
+
+    // console.log(chartData);
+
+    // let status = isLoaded;
+    // status.dailyData = true;
+    // setIsLoaded(status);
+    // setDoneFetch(checkFetchStatus());
   }
 
   const getData = async () => {
@@ -137,41 +160,74 @@ function StockResult() {
 
   const fetchStockNews = async () => {
     const ajaxURL = "https://yahoo-finance-low-latency.p.rapidapi.com/v2/finance/news?symbols=" + target();
-    const headers = {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-key": Config['Yahoo-x_rapidapi_key'],
-        "x-rapidapi-host": Config['Yahoo_Finance-news']
-      }
+    // const headers = {
+    //   "method": "GET",
+    //   "headers": {
+    //     "x-rapidapi-key": Config['Yahoo-x_rapidapi_key'],
+    //     "x-rapidapi-host": Config['Yahoo_Finance-news']
+    //   }
+    // };
+
+    const headers = new Headers();
+    let api_key = Config['Yahoo-x_rapidapi_key'];
+    let api_host = Config['Yahoo-x_rapidapi_host'];
+
+    headers.append("x-rapidapi-key", api_key);
+    headers.append("x-rapidapi-host", api_host);
+
+    var requestOptions = {
+      method: 'GET',
+      headers: headers,
+      redirect: 'follow'
     };
-    // fetch(ajaxURL, headers)
-    //   .then((res) => res.json())
-    //   .then((data) => {
 
-    //   })
+    console.log('Start fetching Yahoo....');
+    fetch(ajaxURL, requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        let news = data.Content.result;
+        news.map((item) => {
+          item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
+          let div = document.createElement("div");
 
-    console.log(news_example);
+          div.innerHTML = item.title;
+          item.title = div.textContent || div.innerText;
 
-    let news = news_example.Content.result;
-    news.map((item) => {
-      item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
-      let div = document.createElement("div");
+          div.innerHTML = item.summary;
+          item.summary = div.textContent || div.innerText;
+        });
 
-      div.innerHTML = item.title;
-      item.title = div.textContent || div.innerText;
+        setStockNews(news);
 
-      div.innerHTML = item.summary;
-      item.summary = div.textContent || div.innerText;
-    });
+        let status = isLoaded;
+        status.news = true;
+        setIsLoaded(status);
+        setDoneFetch(checkFetchStatus());
+      })
+      .catch(error => console.log('error', error));
 
-    console.log(news);
+    // console.log(news_example);
 
-    setStockNews(news);
+    // let news = news_example.Content.result;
+    // news.map((item) => {
+    //   item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
+    //   let div = document.createElement("div");
 
-    let status = isLoaded;
-    status.news = true;
-    setIsLoaded(status);
-    setDoneFetch(checkFetchStatus());
+    //   div.innerHTML = item.title;
+    //   item.title = div.textContent || div.innerText;
+
+    //   div.innerHTML = item.summary;
+    //   item.summary = div.textContent || div.innerText;
+    // });
+
+    // console.log(news);
+
+    // setStockNews(news);
+
+    // let status = isLoaded;
+    // status.news = true;
+    // setIsLoaded(status);
+    // setDoneFetch(checkFetchStatus());
   }
 
   const checkFetchStatus = () => {
