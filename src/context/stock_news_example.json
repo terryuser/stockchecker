@@ -1,370 +1,41 @@
-{
-    "Featured": {
-        "result": [],
-        "error": null
-    },
-    "Meta": {
-        "result": [
-            {
-                "next": 1611837901
-            }
-        ],
-        "error": null
-    },
-    "Content": {
-        "result": [
-            {
-                "rank": 4,
-                "id": "d3a2667e-a8d6-3986-94d9-c1c945edff7c",
-                "tag": "news",
-                "title": "Is American Airlines Stock A Buy After Latest Round Of Rescue Funds?",
-                "summary": "American Airlines looks to rebound from the coronavirus crisis as more people get vaccinated while a new round of stimulus spending goes out. Is the stock a good buy?",
-                "url": "https://www.investors.com/research/aal-stock-buy-now/?src=A00220&yptr=yahoo",
-                "author_name": "GILLIAN RICH",
-                "provider_publish_time": 1615486970,
-                "provider_name": "Investor's Business Daily",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/ibd.com/5bcbd435861509ed6ccab242b90d404e",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 3,
-                "id": "e1b463f9-b8c6-39b6-a439-2b31f2e405bc",
-                "tag": "news",
-                "title": "Robinhood Hits American Airlines Stock After Big Spike, Q4 Results; Southwest Up",
-                "summary": "American Airlines beat views while Southwest was mixed, as both see a challenging 2021. American stock jumped while Southwest edged up.",
-                "url": "https://www.investors.com/news/airline-stocks-american-airlines-southwest-earnings-q4-2020/?src=A00220&yptr=yahoo",
-                "author_name": "BILL PETERS",
-                "provider_publish_time": 1611867854,
-                "provider_name": "Investor's Business Daily",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/ibd.com/0af04ed777c360835aa0baac9ab222f6",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 0,
-                "id": "58cf8f6d-514b-35ee-b0be-beadc4cdc912",
-                "tag": "video",
-                "title": "GameStop &#39;is just the symptom, not the disease&#39;: Expert",
-                "summary": "<p>Barry James, James Investment Research Portfolio Manager, joins Yahoo Finance&#39;s Kristin Myers and Jared Blikre to break down the latest market action amid the short squeeze chaos.</p>",
-                "url": "https://finance.yahoo.com/video/gamestop-just-symptom-not-disease-185623634.html",
-                "author_name": "",
-                "provider_publish_time": 1611860183,
-                "provider_name": "Yahoo Finance Video",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://s.yimg.com/hd/cp-video-transcode/prod/2021-01/28/601308db3b6d0e2f22f6d9f9/601308db3b6d0e2f22f6d9fa_o_U_v2.jpg",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 1,
-                "id": "8f7d1964-911a-3ab7-b0df-e284f907a92f",
-                "tag": "news",
-                "title": "American Airlines regional carrier cancels flights after maintenance issue",
-                "summary": "American Airlines said on Thursday that its regional carrier PSA had temporarily removed most of its aircraft from service and canceled flights while it works with the Federal Aviation Administration (FAA) to address a maintenance issue.  \"Out of an abundance of caution, PSA Airlines has temporarily removed most of its aircraft from service in order to complete a necessary, standard inspection on the nose gear door,\" a spokeswoman said.  Inspections for more than 90 aircraft have been done and the remainder will be completed before Friday.",
-                "url": "https://finance.yahoo.com/news/american-airlines-says-flights-regional-183931495.html",
-                "author_name": "Tracy Rucinski and David Shepardson",
-                "provider_publish_time": 1611859171,
-                "provider_name": "Reuters",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/reuters-finance.com/a1c4a4862e3b5bacfc6a52c29ce4e381",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 5,
-                "id": "bf2860e5-6a50-3d20-bd76-8a39458e6211",
-                "tag": "news",
-                "title": "American Airlines (AAL) Gains on Q4 Earnings &amp; Revenue Beat",
-                "summary": "Low passenger revenues affect American Airlines&#39; (AAL) top line, which declines 64.4% year over year in Q4.",
-                "url": "https://finance.yahoo.com/news/american-airlines-aal-gains-q4-174205295.html",
-                "author_name": "Zacks Equity Research",
-                "provider_publish_time": 1611855725,
-                "provider_name": "Zacks",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/zacks.com/7750508963c5e95a0115930ab9b2b44d",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 6,
-                "id": "91208a06-ca76-329d-82d0-7d9dab43a4a4",
-                "tag": "news",
-                "title": "American Airlines, Southwest post record losses and signal need for more aid",
-                "summary": "American Airlines Group Inc and Southwest Airlines Co posted their biggest-ever annual losses on Thursday and indicated a need for additional government aid as the industry continues to reel from the coronavirus pandemic.  U.S. airlines expect demand to improve this year as vaccines become more widely distributed but have warned that the strength of any rebound will depend on the pace of vaccine rollouts and the easing of travel restrictions.  JetBlue Airways, which also posted a quarterly loss on Thursday, said a recovery will be directly linked to a decline in COVID-19 case counts.",
-                "url": "https://finance.yahoo.com/news/american-airlines-southwest-post-record-172929660.html",
-                "author_name": "Tracy Rucinski and Sanjana  Shivdas",
-                "provider_publish_time": 1611854969,
-                "provider_name": "Reuters",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/reuters.com/fd1d98f4f8229a52a9c4bf585a58be3e",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 7,
-                "id": "4adac5d5-3b9d-37c8-ab9c-e309d460e257",
-                "tag": "video",
-                "title": "Recapping the rally in heavily-shorted stocks",
-                "summary": "<p>In Thursday’s <em>Morning Brief</em>, Myles Udland recaps the continuing rally in highly-shorted stocks fueled by attention from Reddit.</p>",
-                "url": "https://finance.yahoo.com/video/recapping-rally-heavily-shorted-stocks-172531012.html",
-                "author_name": "",
-                "provider_publish_time": 1611854731,
-                "provider_name": "Yahoo Finance Video",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://s.yimg.com/hd/cp-video-transcode/prod/2021-01/28/6012f38c06c4ef1e49887f3e/6012f38c06c4ef1e49887f3f_o_U_v2.jpg",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 9,
-                "id": "2b310fd1-c3af-376e-97d1-f0620d81d043",
-                "tag": "video",
-                "title": "Southwest CEO on its record annual loss: ‘Even Southwest isn’t immune to this pandemic’",
-                "summary": "<p>Southwest Airlines reported a $3.1B annual loss, the company’s first annual loss since 1972. Southwest CEO Gary Kelly joins Yahoo Finance Live to weigh in on the latest financial results and break down what the future of flying looks like post-pandemic.</p>",
-                "url": "https://finance.yahoo.com/video/southwest-ceo-record-annual-loss-162803586.html",
-                "author_name": "",
-                "provider_publish_time": 1611851283,
-                "provider_name": "Yahoo Finance Video",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://s.yimg.com/hd/cp-video-transcode/prod/2021-01/28/6012e6155068c34b41524ed1/6012e95945390264d04b0d28_o_U_v3.jpg",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 10,
-                "id": "9032a1e7-43a7-3654-90ea-619a2bc45f68",
-                "tag": "news",
-                "title": "American Airlines Posts Lower-Than-Feared $2.2B Loss; Shares Gain 15%",
-                "summary": "American Airlines posted a lower-than-feared quarterly loss of $2.2 billion as sales topped analysts’ expectations. Shares surged 15% in Thursday’s morning trading. American Airlines (AAL) reported a net loss of $2.2 billion in the fourth quarter after posting net income of $414 million in the year-ago period. The US air carrier incurred an adjusted loss per share of $3.86, topping analysts’ expectations of a loss of $4.11 per share. Revenue plunged 64% to $4 billion year-on-year, but exceeded the Street consensus of $3.88 billion. Furthermore, American Airlines lowered its daily cash burn rate to $30 million in the fourth quarter from almost $100 million in April 2020. “Our fourth-quarter financial results close out the most challenging year in our company’s history,” said American Airlines CEO Doug Parker. “The American team flew more customers than any other airline in 2020. As we look to the year ahead, 2021 will be a year of recovery. While we don’t know exactly when passenger demand will return, as vaccine distribution takes hold and travel restrictions are lifted, we will be ready.” American Airlines ended the fourth quarter with about $14.3 billion of total available liquidity. The air carrier expects to end the first quarter of 2021 with about $15 billion in total available liquidity. First-quarter system capacity is projected to be down 45%, with total revenue forecasted to be down 60% to 65% year-on-year. Shares in American Airlines have lost 38% of their value over the past year as stringent travel restrictions tied to the coronavirus pandemic have brought travel demand to an almost halt. US airlines have been incurring huge losses and implementing broad cost-cutting plans, as well as taking steps to shore up their cash buffers. (See American Airlines stock analysis on TipRanks). That said, AAL has seen some relief over the past three months, with the stock advancing more than 50% as the rollout of a safe and effective COVID-19 vaccine spurred optimism for a recovery of the aviation industry. Citigroup analyst Stephen Trent this week reiterated a Sell rating on the stock, citing mounting pressure on the airline’s Mexico and Caribbean flight routes due to Covid-19 requirements, as well as higher nonfuel unit costs. Overall, the rest of the Street has a moderately bearish outlook on the stock. The Moderate Sell consensus rating breaks down into 7 Sells and 4 Holds. That’s with an average analyst price target of $13.57, implying 26% downside potential lies ahead over the coming year. Related News: Nokia Says It’s Unaware Of Reason For Share Rally; Street Sees 33% Downside Levi Strauss Sinks 9% Pre-Market As 1Q Guidance Disappoints AMC Explodes 301% After $305M Share Sale; Street Says Hold More recent articles from Smarter Analyst: Perspecta To Be Snapped Up By Veritas For $7.1B; Shares Pop 9.7% Nokia Says It’s Unaware Of Reason For Share Rally; Street Sees 33% Downside Thursday’s Pre-Market: Here’s What You Need To Know Before The Market Opens ServiceNow’s Contract Wins Drive 4Q Profit Beat; Shares Rise Pre-Market",
-                "url": "https://finance.yahoo.com/news/american-airlines-posts-lower-feared-161133674.html",
-                "author_name": "support@smarteranalyst.com (Ben Mahaney)",
-                "provider_publish_time": 1611850293,
-                "provider_name": "SmarterAnalyst",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/smarteranalyst_347/d588005ea8afbc416e29ade80ee40aba",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 11,
-                "id": "81296b81-580a-3d18-a7d9-6acd9b373301",
-                "tag": "video",
-                "title": "Jamie Catherwood on GameStop mania: Narrative will play a bigger role in ‘all aspects of finance’",
-                "summary": "<p>Jamie Catherwood, O’Shaughnessy Asset Management Client Portfolio Associate joins Yahoo Finance Live to break down how other activist campaigns compare to heavily shorted stocks like GameStop.<br></p>",
-                "url": "https://finance.yahoo.com/video/jamie-catherwood-gamestop-mania-narrative-160054905.html",
-                "author_name": "",
-                "provider_publish_time": 1611849654,
-                "provider_name": "Yahoo Finance Video",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://s.yimg.com/hd/cp-video-transcode/prod/2021-01/28/6012dfb745390264d04b0cf0/6012dfb745390264d04b0cf1_o_U_v2.jpg",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 12,
-                "id": "0515ae1c-b74b-3783-9ec5-144249b284ee",
-                "tag": "news",
-                "title": "Why Shares of American Airlines Are Soaring Today",
-                "summary": "Before markets opened, American said it lost $3.86 per share in the fourth quarter on revenue of $4 billion, besting analyst expectations for a $4.11-per-share loss on revenue of $3.88 billion.  Revenue during the quarter was down 64% from a year prior, with the airline burning through about $30 million per day during the period.  American and other airlines have been hit hard by the COVID-19 pandemic, which reduced demand for travel.",
-                "url": "https://www.fool.com/investing/2021/01/28/why-shares-of-american-airlines-are-soaring-today/?source=eptyholnk0000202&utm_source=yahoo-host&utm_medium=feed&utm_campaign=article&yptr=yahoo",
-                "author_name": "Lou Whiteman, The Motley Fool",
-                "provider_publish_time": 1611848160,
-                "provider_name": "Motley Fool",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/motleyfool.com/ba69f919f717ba426e6e5eaa50dfeb5c",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 14,
-                "id": "7291cfa1-18fd-3ffa-837f-2a7e023f67a6",
-                "tag": "news",
-                "title": "American Airlines stock soars after Q4 results but is ‘dislocating with fundamentals,’ analyst says",
-                "summary": "Shares of American Airlines Group Inc. soared toward an 11-month high Thursday after the air carrier reported better-than-expected quarterly results, but Cowen analyst Helane Becker warned that prices were &quot;dislocating with fundaments.&quot;",
-                "url": "https://www.marketwatch.com/story/american-airlines-stock-soars-after-q4-results-but-is-dislocating-with-fundamentals-analyst-says-11611841809?siteid=yhoof2&yptr=yahoo",
-                "author_name": "Tomi Kilgore",
-                "provider_publish_time": 1611841800,
-                "provider_name": "MarketWatch",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 15,
-                "id": "5d3db7b8-aded-391c-bf12-c2645b8f2708",
-                "tag": "news",
-                "title": "American Airlines, Snap: 5 Top Stock Gainers for Thursday",
-                "summary": "Darden Restaurants, Snap, American Airlines, SLM Corp. and Diageo are five top stock gainers for Thursday.",
-                "url": "https://www.thestreet.com/investing/snap-american-airlines-all-stock-gainers-thursday?puc=yahoo&cm_ven=YAHOO&yptr=yahoo",
-                "provider_publish_time": 1611840240,
-                "provider_name": "TheStreet.com",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 16,
-                "id": "4f1336d8-6dee-3fa5-b42f-19215b164a70",
-                "tag": "news",
-                "title": "American Airlines (AAL) Reports Q4 Loss, Tops Revenue Estimates",
-                "summary": "American Airlines (AAL) delivered earnings and revenue surprises of 1.53% and 4.35%, respectively, for the quarter ended December 2020. Do the numbers hold clues to what lies ahead for the stock?",
-                "url": "https://finance.yahoo.com/news/american-airlines-aal-reports-q4-131501468.html",
-                "author_name": "Zacks Equity Research",
-                "provider_publish_time": 1611839701,
-                "provider_name": "Zacks",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://media.zenfs.com/en/zacks.com/17a4db66bb13bdabcbf848550a6ea15a",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 17,
-                "id": "76cced19-86ed-3659-8de7-fbd78996e822",
-                "tag": "news",
-                "title": "American Airlines stock rockets after narrower-than-expected loss, sales and load factor beats",
-                "summary": "Shares of American Airlines Group Inc. rocketed 54.5% toward an 11-month high in premarket trading Thursday, after the air carrier reported a narrower-than-expected fourth-quarter loss, and revenue and load factor that beat expectations. The company swung to a net loss of $2.18 billion, or $3.81 a share, from net income of $414 million, or 95 cents a share, in the year-ago period. Excluding nonrecurring items, the adjusted loss per share was $3.86, beating the FactSet loss consensus of $4.11. Revenue fell 64% to $4.03 billion, but beat the FactSet consensus of $3.88 billion. Load factor fell to 63.4% from 84.7%, above the FactSet consensus of 62.9%, as traffic declined 66.7% while capacity dropped 55.4%. The daily cash burn rate during the quarter was $30 million, which compares with nearly $100 million in April. The company expects to end the first quarter with $15.0 billion in total available liquidity. &quot;As we look to the year ahead, 2021 will be a year of recovery,&quot; said Chief Executive Doug Parker. &quot;While we don&#39;t know exactly when passenger demand will return, as vaccine distribution takes hold and travel restrictions are lifted, we will be ready.&quot; The stock has run up 51.2% over the past three months through Wednesday, while the U.S. Global Jets ETF has climbed 29.5% and the S&P 500 has gained 14.7%.",
-                "url": "https://www.marketwatch.com/story/american-airlines-stock-soars-after-narrower-than-expected-loss-sales-and-load-factor-beats-2021-01-28?siteid=yhoof2&yptr=yahoo",
-                "author_name": "Tomi Kilgore",
-                "provider_publish_time": 1611838380,
-                "provider_name": "MarketWatch",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 18,
-                "id": "474108f5-4cf2-3dec-961a-7e5a6ec556dd",
-                "tag": "news",
-                "title": "American Airlines: What Happened With AAL",
-                "summary": "American Airlines Group (AAL) reported Q4 earnings before market open on January 28. Its adjusted loss per share was narrower than expected.",
-                "url": "https://www.investopedia.com/american-airlines-q4-2020-earnings-5097269?utm_campaign=quote-yahoo&utm_source=yahoo&utm_medium=referral&yptr=yahoo",
-                "provider_publish_time": 1611838017,
-                "provider_name": "Investopedia",
-                "hosted": false,
-                "tickers": [
-                    "AAL"
-                ],
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            },
-            {
-                "rank": 19,
-                "id": "93fda8cb-52a3-39c4-8684-d6bda8ea178e",
-                "tag": "news",
-                "title": "Southwest lost $3.1 billion in 2020 as COVID-19 hammered travel",
-                "summary": "Southwest Airlines CEO Gary Kelly says the travel industry faces ever changing environment as the pandemic evovles.",
-                "url": "https://finance.yahoo.com/news/covid-19-flew-southwest-to-a-31-billion-loss-last-year-124502169.html",
-                "author_name": "Adam Shapiro",
-                "provider_publish_time": 1611837902,
-                "provider_name": "Yahoo Finance",
-                "hosted": true,
-                "tickers": [
-                    "AAL"
-                ],
-                "thumbnail": "https://s.yimg.com/os/creatr-uploaded-images/2021-01/a14c7790-6116-11eb-9f25-657843caea4e",
-                "featured": false,
-                "timeZoneShortName": "EDT",
-                "timeZoneFullName": "America/New_York",
-                "gmtOffSetMilliseconds": -14400000,
-                "imageSet": {}
-            }
-        ],
-        "error": null
-    }
-}
+[ {
+    "symbol" : "AAL",
+    "publishedDate" : "2021-04-06 10:58:55",
+    "title" : "Morgan Stanley Sees Plenty of Lift in Airline Stocks",
+    "image" : "https://cdn.snapi.dev/images/v1/z/g/airline2-753851.jpg",
+    "site" : "24/7 Wall Street",
+    "text" : "The COVID-19 pandemic delivered a severe blow to the airline industry. At the low point last May, airline stocks were down between 50% and 80%.",
+    "url" : "https://247wallst.com/transportation/2021/04/06/morgan-stanley-sees-plenty-of-lift-in-airline-stocks/"
+  }, {
+    "symbol" : "AAL",
+    "publishedDate" : "2021-04-06 08:27:13",
+    "title" : "Some airline stocks are back at pre-pandemic levels but earnings are not: Analyst",
+    "image" : "https://cdn.snapi.dev/images/v1/m/q/some-airline-stocks-are-back-at-pre-pandemic-levels-but-earnings-are-not-analyst-753330.jpg",
+    "site" : "CNBC Television",
+    "text" : "Helane Becker, Cowen senior research analyst, and Kari Firestone, chairman and CEO of Aureus Asset Management, joined \"Squawk Box\" on Tuesday to discuss the strength of a possible reopening trade.",
+    "url" : "https://www.youtube.com/watch?v=q-xW1vAxb_k"
+  }, {
+    "symbol" : "AAL",
+    "publishedDate" : "2021-04-05 15:50:17",
+    "title" : "Major Airlines' Booking Services Crash Due To Google Software Issue",
+    "image" : "https://cdn.snapi.dev/images/v1/m/a/major-airlines-booking-services-crash-due-to-google-software-issue-752426.jpg",
+    "site" : "Forbes",
+    "text" : "The issue has prevented customers from reserving flights at American Airlines, Delta Airlines and United Airlines.",
+    "url" : "https://www.forbes.com/sites/ginaheeb/2021/04/05/major-airlines-booking-services-crash-due-to-google-software-issue/"
+  }, {
+    "symbol" : "AAL",
+    "publishedDate" : "2021-04-05 14:58:42",
+    "title" : "Several airlines' booking sites down due to Google software issue",
+    "image" : "https://cdn.snapi.dev/images/v1/v/g/106860428-1616797108141-gettyimages-1231950033-air-travel-752366.jpeg",
+    "site" : "CNBC",
+    "text" : "Google said it was working on a fix for the issue",
+    "url" : "https://www.cnbc.com/2021/04/05/several-airlines-booking-sites-down-due-to-google-software-issue.html"
+  }, {
+    "symbol" : "AAL",
+    "publishedDate" : "2021-04-05 14:24:03",
+    "title" : "CDC's New Guidance Makes the Skyline Sunnier for U.S. Airlines",
+    "image" : "https://cdn.snapi.dev/images/v1/z/x/airline1-752329.jpg",
+    "site" : "Zacks Investment Research",
+    "text" : "CDC's latest travel manual provides a further impetus to the U.S. airline stocks like Delta (DAL), Southwest Airlines (LUV) and American Airlines (AA), which are scaling an outstanding graph on the bourses this year.",
+    "url" : "https://www.zacks.com/stock/news/1349605/cdcs-new-guidance-makes-the-skyline-sunnier-for-us-airlines"
+  } ]

@@ -159,42 +159,50 @@ function StockResult() {
   };
 
   const fetchStockNews = async () => {
-    const ajaxURL = "https://yahoo-finance-low-latency.p.rapidapi.com/v2/finance/news?symbols=" + target();
-    // const headers = {
-    //   "method": "GET",
-    //   "headers": {
-    //     "x-rapidapi-key": Config['Yahoo-x_rapidapi_key'],
-    //     "x-rapidapi-host": Config['Yahoo_Finance-news']
-    //   }
+    // const ajaxURL = "https://yahoo-finance-low-latency.p.rapidapi.com/v2/finance/news?symbols=" + target();
+
+    // const headers = new Headers();
+    // let api_key = Config['Yahoo-x_rapidapi_key'];
+    // let api_host = Config['Yahoo-x_rapidapi_host'];
+
+    // headers.append("x-rapidapi-key", api_key);
+    // headers.append("x-rapidapi-host", api_host);
+
+    // var requestOptions = {
+    //   method: 'GET',
+    //   headers: headers,
+    //   redirect: 'follow'
     // };
 
-    const headers = new Headers();
-    let api_key = Config['Yahoo-x_rapidapi_key'];
-    let api_host = Config['Yahoo-x_rapidapi_host'];
+    const ajaxURL = Config.API_BaseURL + "stock_news?tickers=" + target() + "&limit=20&apikey=" + Config.API_Key;
 
-    headers.append("x-rapidapi-key", api_key);
-    headers.append("x-rapidapi-host", api_host);
-
-    var requestOptions = {
-      method: 'GET',
-      headers: headers,
-      redirect: 'follow'
-    };
-
-    console.log('Start fetching Yahoo....');
-    fetch(ajaxURL, requestOptions)
+    // fetch(ajaxURL, requestOptions)
+    fetch(ajaxURL)
       .then((res) => res.json())
       .then((data) => {
-        let news = data.Content.result;
+        // let news = data.Content.result;
+        // news.map((item) => {
+        //   item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
+        //   let div = document.createElement("div");
+
+        //   div.innerHTML = item.title;
+        //   item.title = div.textContent || div.innerText;
+
+        //   div.innerHTML = item.summary;
+        //   item.summary = div.textContent || div.innerText;
+        // });
+
+        let news = data;
         news.map((item) => {
-          item.provider_publish_time = new Date((1000 * item.provider_publish_time) + item.gmtOffSetMilliseconds);
+          item.publishedDate = new Date(item.publishedDate);
+
           let div = document.createElement("div");
 
           div.innerHTML = item.title;
           item.title = div.textContent || div.innerText;
 
-          div.innerHTML = item.summary;
-          item.summary = div.textContent || div.innerText;
+          div.innerHTML = item.text;
+          item.text = div.textContent || div.innerText;
         });
 
         setStockNews(news);
