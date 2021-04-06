@@ -22,8 +22,7 @@ function StockResult() {
   const [isSent, setIsSent] = useState(false);
   const [isLoaded, setIsLoaded] = useState({
     profile: false,
-    dailyData: false,
-    news: false
+    dailyData: false
   });
   const [stockData, setStockData] = useState(null);
   const [dailyData, setDailyData] = useState([]);
@@ -267,7 +266,7 @@ function StockResult() {
               <StockDetails stock={stockData[0]} />
             </div>
           </div>
-          <StockNews news={stockNews} />
+          {stockNews && <StockNews news={stockNews} />}
         </div>
       )
     } else {
